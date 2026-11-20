@@ -33,7 +33,7 @@ panel on the left:
 
 Delete existing table
 -- SQLBook: Code
--- Active: 1710903290079@@127.0.0.1@5432@postgres
+-- Active: 127.0.0.1@5432
 -- If the table already exists we can drop it:
 -- If it doesn't exist nothing happens
 -- System commands are in upper case and user defined
@@ -191,7 +191,9 @@ with more than 60 victories
 -- SQLBook: Code
 -- Write your own code!
 
-
+SELECT nationality, driver_id
+FROM drivers
+WHERE victories > 60;
 
 -- SQLBook: Markup
 # <span style="color:darkblue"> III. Groupby + Chaining </span>
@@ -257,7 +259,11 @@ Try it yourself!
 # Write your own code
 
 
-
+SELECT nationality,
+    MAX(victories) AS max_victories
+FROM drivers
+GROUP BY nationality
+HAVING MAX(victories) <= 71;
 -- SQLBook: Markup
 # <span style="color:darkblue"> IV. Merging </span>
 
@@ -287,6 +293,7 @@ Left-join data
 - ``` LEFT JOIN``` is followed by the secondary dataset
 
 -- SQLBook: Code
+-- Active: 1795203432458@@127.0.0.1@5432@postgres
 -- Active: 1710903290079@@127.0.0.1@5432@postgres
 
 SELECT * 
